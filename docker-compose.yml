@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  navigation-frontend:
+    build: ./navigation-frontend
+    ports:
+      - "6999:6999"
+    # networks ni potreben, če ni medsebojne komunikacije med servisi
+
+  book-managment-frontend:
+    build: ./book-managment-frontend
+    ports:
+      - "7000:7000"
+    # Opcija networks tukaj ni potrebna
+
+  reservation-managment-frontend:
+    build: ./reservation-managment-frontend
+    ports:
+      - "7003:7003"
+    # Opcija networks tukaj ni potrebna
+
+  user-managment-frontend:
+    build: ./user-managment-frontend
+            
+    ports:
+      - "7002:7002"
+    # Opcija networks tukaj ni potrebna
+
+
