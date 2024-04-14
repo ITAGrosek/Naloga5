@@ -4,11 +4,18 @@ import './App.css';
 import ReservationManagement from './ReservationManagement';
 
 function App() {
+  const handleBack = () => {
+    window.location.href = 'http://localhost:6999';
+  };
+
   return (
     <div className="App">
-      <ReservationManagement />
+      <button onClick={handleBack}>Nazaj na navigacijo</button>
+      <ReservationManagement/>
     </div>
   );
 }
 
 export default App;
+
+

@@ -1,12 +1,16 @@
 // App.js
 import React from 'react';
-import UserApp from './UserApp'; // Dodaj ta import
+import UserApp from './UserApp';
 
 function App() {
+  const handleBack = () => {
+    window.location.href = 'http://localhost:6999';
+  };
+
   return (
     <div className="App">
-      <h1>Pridobi uporabnike</h1> {/* Dodaj to vrstico */}
-      <UserApp /> {/* Uporabi komponento tukaj */}
+      <button onClick={handleBack}>Nazaj na navigacijo</button>
+      <UserApp />
     </div>
   );
 }

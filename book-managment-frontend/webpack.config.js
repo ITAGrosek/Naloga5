@@ -37,7 +37,7 @@ module.exports = {
       name: 'bookManagement', // Ime mikrofrontenda
       filename: 'remoteEntry.js', // Datoteka, ki bo vsebovala informacije o izpostavljenih modulih
       exposes: {
-        './Library': './src/Library', // Izpostavi Library komponento
+        './BooksList': './src/BooksList', // Izpostavi Library komponento
       },
       shared: { // Deljene odvisnosti
         react: { singleton: true, eager: true, requiredVersion: deps.react },

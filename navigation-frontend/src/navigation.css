@@ -1,0 +1,18 @@
+.navigation {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .navigation a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .navigation a:hover {
+    background-color: #777;
+  }
+  
