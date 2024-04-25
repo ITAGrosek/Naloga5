@@ -39,9 +39,8 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'userManager',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './UserApp': './src/UserApp',
+      remotes: {
+        navigation: 'navigation@http://localhost:6999/remoteEntry.js', // URL do remoteEntry.js od navigation-frontend
       },
       shared: {
         react: { singleton: true, eager: true, requiredVersion: deps.react },

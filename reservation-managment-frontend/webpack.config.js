@@ -41,9 +41,8 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'reservationManager',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './ReservationManagement': './src/ReservationManagement', // Ime in pot do komponente, ki jo želite izpostaviti
+      remotes: {
+        navigation: 'navigation@http://localhost:6999/remoteEntry.js', // URL do remoteEntry.js od navigation-frontend
       },
       shared: {
         react: { singleton: true, eager: true, requiredVersion: deps.react },

@@ -1,22 +1,15 @@
-// App.js
+// App.js v book-management-frontend
 import React from 'react';
-import BooksList from './BooksList'; // Dodaj ta import
+import BooksList from './BooksList';
+import Navigation from 'navigation/navigation'; // Dodaj to vrstico
 
 function App() {
-  const handleBack = () => {
-    window.location.href = 'http://localhost:6999';
-  };
-
   return (
     <div className="App">
-      <button onClick={handleBack}>Nazaj na navigacijo</button>
-      <BooksList/>
+      <Navigation /> {/* Prikaži navigacijsko vrstico na vrhu */}
+      <BooksList />
     </div>
   );
 }
 
 export default App;
-
-
-
-

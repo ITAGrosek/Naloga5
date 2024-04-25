@@ -34,10 +34,9 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'bookManagement', // Ime mikrofrontenda
-      filename: 'remoteEntry.js', // Datoteka, ki bo vsebovala informacije o izpostavljenih modulih
-      exposes: {
-        './BooksList': './src/BooksList', // Izpostavi Library komponento
+      name: 'bookManagement',
+      remotes: {
+        navigation: 'navigation@http://localhost:6999/remoteEntry.js', // URL do remoteEntry.js od navigation-frontend
       },
       shared: { // Deljene odvisnosti
         react: { singleton: true, eager: true, requiredVersion: deps.react },
