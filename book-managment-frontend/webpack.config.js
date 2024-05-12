@@ -5,7 +5,7 @@ const deps = require('./package.json').dependencies;
 
 module.exports = {
   entry: './src/index', // Vhodna točka tvoje aplikacije
-  mode: 'development', // Lahko izbereš 'production' za produkcijsko verzijo
+  mode: 'production', // Lahko izbereš 'production' za produkcijsko verzijo
   devServer: {
     static: { // 'contentBase' je bilo preimenovano v 'static' v webpack 5
       directory: path.join(__dirname, 'public'), // Mapa, iz katere bo strežnik serviral
@@ -36,7 +36,7 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'bookManagement',
       remotes: {
-        navigation: 'navigation@http://localhost:6999/remoteEntry.js', // URL do remoteEntry.js od navigation-frontend
+        navigation: 'navigation@http://navigation-frontend:6999/remoteEntry.js',
       },
       shared: { // Deljene odvisnosti
         react: { singleton: true, eager: true, requiredVersion: deps.react },

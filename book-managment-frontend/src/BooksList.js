@@ -10,38 +10,35 @@ const BooksList = () => {
   const [showAddBookForm, setShowAddBookForm] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/api/books')
+    axios.get('http://bff-web:3000/api/books')
       .then(response => setBooks(response.data))
       .catch(error => console.error("Error fetching books:", error));
   }, []);
+  
 
   const toggleBooksVisibility = () => setShowBooks(!showBooks);
 
   const handleDelete = (bookId) => {
     if (window.confirm('Ali ste prepričani, da želite izbrisati knjigo?')) {
-      axios.delete(`http://localhost:3000/api/books/${bookId}`)
+      axios.delete(`http://bff-web:3000/api/books/${bookId}`)
         .then(() => setBooks(books.filter(book => book.id !== bookId)))
         .catch(error => console.error('Error deleting book:', error));
     }
   };
-
-  const handleEditClick = (book) => setEditingBook({ ...book });
-
-  const handleCancelEdit = () => setEditingBook(null);
-
+  
   const handleSubmitEdit = (e) => {
     e.preventDefault();
-    axios.put(`http://localhost:3000/api/books/${editingBook.id}`, editingBook)
+    axios.put(`http://bff-web:3000/api/books/${editingBook.id}`, editingBook)
       .then(() => {
         setBooks(books.map(book => book.id === editingBook.id ? editingBook : book));
         setEditingBook(null);
       })
       .catch(error => console.error('Error updating book:', error));
   };
-
+  
   const handleAddBook = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3000/api/books', newBook)
+    axios.post('http://bff-web:3000/api/books', newBook)
       .then(response => {
         setBooks([...books, response.data]);
         setNewBook({ title: '', author: '', isbn: '', genre: '' });
@@ -49,6 +46,7 @@ const BooksList = () => {
       })
       .catch(error => console.error('Error adding book:', error));
   };
+  
 
   return (
     <div className="book-list-container">
